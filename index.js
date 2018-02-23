@@ -42,8 +42,8 @@ module.exports = function buildACBPreset(context, options) {
       [require('babel-plugin-transform-builtin-extend'), {
         globals: ['Error']
       }],
-      require('transform-react-constant-elements'),
-      require('transform-react-inline-elements')
+      require('babel-plugin-transform-react-constant-elements'),
+      require('babel-plugin-transform-react-inline-elements')
     ].filter(Boolean)
   };
 };
