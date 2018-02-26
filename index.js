@@ -2,6 +2,10 @@
 
 var assign = require('object.assign');
 
+var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
+  strict: false
+}];
+
 var defaultTargets = {
   "node": "current",
   "browsers": [
@@ -31,19 +35,21 @@ module.exports = function buildACBPreset(context, options) {
       require('babel-preset-env').default(null, {
         debug: debug,
         useBuiltIns: true,
+        modules: false,
         targets: transpileTargets
       }),
       require('babel-preset-react'),
       require('babel-preset-stage-2'),
     ],
     plugins: [
+      options && options.modules === false ? null : modules,
       require('babel-plugin-transform-object-rest-spread'),
       require('babel-plugin-jsx-control-statements'),
       [require('babel-plugin-transform-builtin-extend'), {
         globals: ['Error']
       }],
-      require('babel-plugin-transform-react-constant-elements'),
-      require('babel-plugin-transform-react-inline-elements')
+      !debug ? require('babel-plugin-transform-react-constant-elements') : null,
+      !debug ? require('babel-plugin-transform-react-inline-elements').default : null,
     ].filter(Boolean)
   };
 };
