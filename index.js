@@ -45,11 +45,11 @@ module.exports = function buildACBPreset(context, options) {
       options && options.modules === false ? null : modules,
       require('babel-plugin-transform-object-rest-spread'),
       require('babel-plugin-jsx-control-statements'),
-      [require('babel-plugin-transform-builtin-extend'), {
+      [require('babel-plugin-transform-builtin-extend').default, {
         globals: ['Error']
       }],
-      !debug ? require('babel-plugin-transform-react-constant-elements') : null,
-      !debug ? require('babel-plugin-transform-react-inline-elements').default : null,
+      debug ? null : require('babel-plugin-transform-react-constant-elements'),
+      debug ? null : require('babel-plugin-transform-react-inline-elements').default,
     ].filter(Boolean)
   };
 };
