@@ -1,4 +1,5 @@
 'use strict';
+var browsers = require('browserslist-config-acb');
 
 var assign = require('object.assign');
 
@@ -8,16 +9,7 @@ var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
 
 var defaultTargets = {
   "node": "current",
-  "browsers": [
-    "last 2 chrome versions",
-    "last 2 firefox versions",
-    "last 2 safari versions",
-    "last 2 edge versions",
-    "last 1 ie versions",
-    "last 2 ios_saf versions",
-    "last 2 android versions",
-    "last 2 samsung versions"
-  ]
+  "browsers": browsers
 };
 
 function buildTargets(options) {
