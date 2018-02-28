@@ -1,11 +1,8 @@
 {
   "name": "babel-preset-acb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A babel preset for transforming JavaScript for A Color Bright",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acolorbright/babel-preset-acb.git"
@@ -18,7 +15,6 @@
     "react",
     "jsx"
   ],
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/acolorbright/babel-preset-acb/issues"
