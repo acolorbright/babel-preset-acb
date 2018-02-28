@@ -1,6 +1,6 @@
 # babel-preset-acb
 
-> A babel preset for transforming your JavaScript for A Color Bright, based on Airbnb's [babel-preset-airbnb](https://github.com/airbnb/babel-preset-airbnb).
+> A babel preset for transforming JavaScript for A Color Bright, based on Airbnb's [babel-preset-airbnb](https://github.com/airbnb/babel-preset-airbnb).
 
 Currently uses presets for React and stage 2, plus object rest/spread and JSX
 control statements.
@@ -8,7 +8,7 @@ control statements.
 ## Installation
 
 ```shell
-$ npm install acolorbright/babel-preset-acb#v1.0.2
+$ npm install acolorbright/babel-preset-acb#v1.0.3
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ Please refer to [babel-preset-env#targets](https://github.com/babel/babel-preset
 
 For a list of browsers please see [browserlist](https://github.com/ai/browserslist).
 
-Our default browsers list is available via our [browserslist-config-acb](https://github.com/acolorbright/browserslist-config-acb) package.
+Our default browsers list is available via our [@acolorbright/browserslist-config](https://github.com/acolorbright/browserslist-config) package.
 
 You may override our default list of targets by providing your own `targets` key.
 
