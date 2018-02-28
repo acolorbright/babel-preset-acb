@@ -1,5 +1,5 @@
 'use strict';
-var browsers = require('browserslist-config-acb');
+var browsers = require('@acolorbright/browserslist-config');
 
 var assign = require('object.assign');
 
