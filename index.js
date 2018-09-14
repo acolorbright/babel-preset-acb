@@ -3,7 +3,7 @@ var browsers = require('@acolorbright/browserslist-config');
 
 var assign = require('object.assign');
 
-var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
+var modules = [require('@babel/plugin-transform-modules-commonjs'), {
   strict: false
 }];
 
@@ -24,24 +24,24 @@ module.exports = function buildACBPreset(context, options) {
 
   return {
     presets: [
-      require('babel-preset-env').default(null, {
+      require('@babel/preset-env').default(context, {
         debug: debug,
-        useBuiltIns: true,
+        useBuiltIns: "entry",
         modules: false,
         targets: transpileTargets
       }),
-      require('babel-preset-react'),
-      require('babel-preset-stage-2'),
+      require('@babel/preset-react'),
+      require('@babel/preset-stage-2'),
     ],
     plugins: [
       options && options.modules === false ? null : modules,
-      require('babel-plugin-transform-object-rest-spread'),
+      require('@babel/plugin-proposal-object-rest-spread'),
       require('babel-plugin-jsx-control-statements'),
       [require('babel-plugin-transform-builtin-extend').default, {
         globals: ['Error']
       }],
-      debug ? null : require('babel-plugin-transform-react-constant-elements'),
-      debug ? null : require('babel-plugin-transform-react-inline-elements').default,
+      debug ? null : require('@babel/plugin-transform-react-constant-elements'),
+      debug ? null : require('@babel/plugin-transform-react-inline-elements').default,
     ].filter(Boolean)
   };
 };
