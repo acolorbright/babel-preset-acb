@@ -26,7 +26,7 @@ module.exports = function buildACBPreset(context, options) {
     presets: [
       require('@babel/preset-env').default(context, {
         debug: debug,
-        useBuiltIns: "entry",
+        useBuiltIns: 'entry',
         modules: false,
         targets: transpileTargets
       }),
