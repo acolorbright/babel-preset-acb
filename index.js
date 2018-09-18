@@ -22,14 +22,17 @@ module.exports = function buildACBPreset(context, options) {
 
   var debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
 
+  var presetEnvExtraOptions = options && options.presetEnvExtraOptions || {};
+  var presetEnvOptions = Object.assign({
+    debug: debug,
+    useBuiltIns: 'entry',
+    modules: false,
+    targets: transpileTargets
+  }, presetEnvExtraOptions);
+
   return {
     presets: [
-      require('@babel/preset-env').default(context, {
-        debug: debug,
-        useBuiltIns: 'entry',
-        modules: false,
-        targets: transpileTargets
-      }),
+      require('@babel/preset-env').default(context, presetEnvOptions),
       require('@babel/preset-react'),
     ],
     plugins: [
