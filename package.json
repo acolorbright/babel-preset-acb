@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-acb",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A babel preset for transforming JavaScript for A Color Bright",
   "main": "index.js",
   "repository": {
@@ -24,13 +24,15 @@
     "@acolorbright/browserslist-config": "github:acolorbright/browserslist-config#v1.0",
     "babel-plugin-jsx-control-statements": "3.2.8",
     "babel-plugin-transform-builtin-extend": "1.1.2",
-    "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-plugin-transform-react-constant-elements": "6.23.0",
-    "babel-plugin-transform-react-inline-elements": "6.22.0",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-react": "6.24.1",
-    "babel-preset-stage-2": "6.24.1",
+    "@babel/plugin-transform-modules-commonjs": "7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-react": "7.0.0",
     "object.assign": "4.1.0"
   }
 }

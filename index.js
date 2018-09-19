@@ -3,7 +3,7 @@ var browsers = require('@acolorbright/browserslist-config');
 
 var assign = require('object.assign');
 
-var modules = [require('babel-plugin-transform-es2015-modules-commonjs'), {
+var modules = [require('@babel/plugin-transform-modules-commonjs'), {
   strict: false
 }];
 
@@ -22,26 +22,31 @@ module.exports = function buildACBPreset(context, options) {
 
   var debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
 
+  var presetEnvExtraOptions = options && options.presetEnvExtraOptions || {};
+  var presetEnvOptions = Object.assign({
+    debug: debug,
+    useBuiltIns: 'entry',
+    modules: false,
+    targets: transpileTargets
+  }, presetEnvExtraOptions);
+
   return {
     presets: [
-      require('babel-preset-env').default(null, {
-        debug: debug,
-        useBuiltIns: true,
-        modules: false,
-        targets: transpileTargets
-      }),
-      require('babel-preset-react'),
-      require('babel-preset-stage-2'),
+      require('@babel/preset-env').default(context, presetEnvOptions),
+      require('@babel/preset-react'),
     ],
     plugins: [
       options && options.modules === false ? null : modules,
-      require('babel-plugin-transform-object-rest-spread'),
+      require('@babel/plugin-proposal-object-rest-spread'),
       require('babel-plugin-jsx-control-statements'),
       [require('babel-plugin-transform-builtin-extend').default, {
         globals: ['Error']
       }],
-      debug ? null : require('babel-plugin-transform-react-constant-elements'),
-      debug ? null : require('babel-plugin-transform-react-inline-elements').default,
+      require('@babel/plugin-proposal-export-namespace-from'),
+      require('@babel/plugin-proposal-throw-expressions'),
+      require('@babel/plugin-syntax-dynamic-import'),
+      debug ? null : require('@babel/plugin-transform-react-constant-elements'),
+      debug ? null : require('@babel/plugin-transform-react-inline-elements').default,
     ].filter(Boolean)
   };
 };
