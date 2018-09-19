@@ -42,12 +42,7 @@ module.exports = function buildACBPreset(context, options) {
       [require('babel-plugin-transform-builtin-extend').default, {
         globals: ['Error']
       }],
-      [require('@babel/plugin-proposal-decorators').default, { 
-        legacy: true
-      }],
-      require('@babel/plugin-proposal-function-sent'),
       require('@babel/plugin-proposal-export-namespace-from'),
-      require('@babel/plugin-proposal-numeric-separator'),
       require('@babel/plugin-proposal-throw-expressions'),
       require('@babel/plugin-syntax-dynamic-import'),
       debug ? null : require('@babel/plugin-transform-react-constant-elements'),
