@@ -38,6 +38,7 @@ module.exports = function buildACBPreset(context, options) {
     plugins: [
       options && options.modules === false ? null : modules,
       require('@babel/plugin-proposal-object-rest-spread'),
+      require('@babel/plugin-proposal-optional-chaining'),
       require('babel-plugin-jsx-control-statements'),
       [require('babel-plugin-transform-builtin-extend').default, {
         globals: ['Error']
