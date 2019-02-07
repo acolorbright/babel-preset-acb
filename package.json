@@ -22,17 +22,17 @@
   "homepage": "https://github.com/acolorbright/babel-preset-acb#readme",
   "dependencies": {
     "@acolorbright/browserslist-config": "github:acolorbright/browserslist-config#v1.0",
-    "babel-plugin-jsx-control-statements": "3.2.8",
-    "babel-plugin-transform-builtin-extend": "1.1.2",
-    "@babel/plugin-transform-modules-commonjs": "7.0.0",
-    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
-    "@babel/plugin-transform-react-constant-elements": "7.0.0",
-    "@babel/plugin-transform-react-inline-elements": "7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "7.0.0",
-    "@babel/preset-env": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "7.2.0",
+    "@babel/plugin-transform-react-constant-elements": "7.2.0",
+    "@babel/plugin-transform-react-inline-elements": "7.2.0",
+    "@babel/preset-env": "7.2.0",
     "@babel/preset-react": "7.0.0",
+    "babel-plugin-jsx-control-statements": "4.0.0",
+    "babel-plugin-transform-builtin-extend": "1.1.2",
     "object.assign": "4.1.0"
   }
 }
