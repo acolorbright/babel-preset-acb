@@ -2,13 +2,13 @@
 
 > A babel preset for transforming JavaScript for A Color Bright, modeled on Airbnb's [babel-preset-airbnb](https://github.com/airbnb/babel-preset-airbnb).
 
-Currently uses presets for React and stage 2, plus object rest/spread and JSX
-control statements.
+Currently uses presets for React and stage 2, plus object rest/spread, optional
+chaining and JSX control statements.
 
 ## Installation
 
 ```shell
-$ npm install acolorbright/babel-preset-acb#v1.0.3
+$ npm install acolorbright/babel-preset-acb#v2.1.0
 ```
 
 ## Usage
