@@ -8,7 +8,7 @@ chaining and JSX control statements.
 ## Installation
 
 ```shell
-$ npm install acolorbright/babel-preset-acb#v2.1.0
+$ npm install acolorbright/babel-preset-acb#v2.1.1
 ```
 
 ## Usage

@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-acb",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A babel preset for transforming JavaScript for A Color Bright",
   "main": "index.js",
   "repository": {
