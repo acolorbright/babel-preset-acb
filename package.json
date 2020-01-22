@@ -20,6 +20,9 @@
     "url": "https://github.com/acolorbright/babel-preset-acb/issues"
   },
   "homepage": "https://github.com/acolorbright/babel-preset-acb#readme",
+  "scripts": {
+    "lint": "eslint --fix index.js"
+  },
   "dependencies": {
     "@acolorbright/browserslist-config": "github:acolorbright/browserslist-config#v1.0",
     "@babel/plugin-proposal-export-namespace-from": "7.2.0",
@@ -35,5 +38,11 @@
     "babel-plugin-jsx-control-statements": "4.0.0",
     "babel-plugin-transform-builtin-extend": "1.1.2",
     "object.assign": "4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "6.3.0",
+    "eslint-config-acb-base": "github:acolorbright/eslint-config-acb-base#v3.1.0",
+    "eslint-plugin-extra-rules": "0.8.1",
+    "eslint-plugin-import": "2.18.2"
   }
 }
