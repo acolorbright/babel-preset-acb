@@ -1,15 +1,16 @@
-'use strict';
-var browsers = require('@acolorbright/browserslist-config');
+/* eslint-disable global-require */
+const browsers = require('@acolorbright/browserslist-config');
 
-var assign = require('object.assign');
+const assign = require('object.assign');
 
-var modules = [require('@babel/plugin-transform-modules-commonjs'), {
-  strict: false
+const modules = [require('@babel/plugin-transform-modules-commonjs'), {
+  strict: false,
 }];
 
-var defaultTargets = {
-  "node": "current",
-  "browsers": browsers
+
+const defaultTargets = {
+  node: 'current',
+  browsers,
 };
 
 function buildTargets(options) {
@@ -17,18 +18,17 @@ function buildTargets(options) {
 }
 
 module.exports = function buildACBPreset(context, options) {
-  var transpileTargets = (options && options.targets) ||
-    buildTargets(options || {});
+  const transpileTargets = (options && options.targets)
+    || buildTargets(options || {});
 
-  var debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
+  const debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
 
-  var presetEnvExtraOptions = options && options.presetEnvExtraOptions || {};
-  var presetEnvOptions = Object.assign({
-    debug: debug,
+  const presetEnvExtraOptions = options.presetEnvExtraOptions || {};
+  const presetEnvOptions = { debug,
     useBuiltIns: 'entry',
     modules: false,
-    targets: transpileTargets
-  }, presetEnvExtraOptions);
+    targets: transpileTargets,
+    ...presetEnvExtraOptions };
 
   return {
     presets: [
@@ -41,13 +41,13 @@ module.exports = function buildACBPreset(context, options) {
       require('@babel/plugin-proposal-optional-chaining'),
       require('babel-plugin-jsx-control-statements'),
       [require('babel-plugin-transform-builtin-extend').default, {
-        globals: ['Error']
+        globals: ['Error'],
       }],
       require('@babel/plugin-proposal-export-namespace-from'),
       require('@babel/plugin-proposal-throw-expressions'),
       require('@babel/plugin-syntax-dynamic-import'),
       debug ? null : require('@babel/plugin-transform-react-constant-elements'),
       debug ? null : require('@babel/plugin-transform-react-inline-elements').default,
-    ].filter(Boolean)
+    ].filter(Boolean),
   };
 };
