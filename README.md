@@ -6,12 +6,12 @@ Currently uses the presets [@babel/preset-env](https://babeljs.io/docs/en/babel-
 
 ## Requirements
 
-* [@babel/core](https://babeljs.io/docs/en/babel-core) [7.8](https://babeljs.io/blog/2020/01/11/7.8.0)
+* [@babel/core](https://babeljs.io/docs/en/babel-core) >= [7.8](https://babeljs.io/blog/2020/01/11/7.8.0)
 
 ## Installation
 
 ```shell
-$ npm install --save-dev --save-exact @babel/core@7.8 acolorbright/babel-preset-acb#v3.0.0
+$ npm install --save-dev @babel/core@^7.8 acolorbright/babel-preset-acb#v3.0.0
 ```
 
 ## Usage
