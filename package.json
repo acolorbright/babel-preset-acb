@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-acb",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "A babel preset for transforming JavaScript for A Color Bright",
   "main": "index.js",
   "repository": {
@@ -24,20 +24,13 @@
     "lint": "eslint --fix index.js"
   },
   "dependencies": {
-    "@acolorbright/browserslist-config": "github:acolorbright/browserslist-config#v1.0",
-    "@babel/plugin-proposal-export-namespace-from": "7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "7.2.0",
-    "@babel/plugin-proposal-optional-chaining": "7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/plugin-transform-modules-commonjs": "7.2.0",
-    "@babel/plugin-transform-react-constant-elements": "7.2.0",
-    "@babel/plugin-transform-react-inline-elements": "7.2.0",
-    "@babel/preset-env": "7.2.0",
-    "@babel/preset-react": "7.0.0",
+    "@acolorbright/browserslist-config": "github:acolorbright/browserslist-config#v2.0.0",
+    "@babel/helper-plugin-utils": "7.8.3",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-react": "7.8.3",
     "babel-plugin-jsx-control-statements": "4.0.0",
-    "babel-plugin-transform-builtin-extend": "1.1.2",
-    "object.assign": "4.1.0"
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24"
   },
   "devDependencies": {
     "eslint": "6.3.0",

@@ -1,11 +1,6 @@
-/* eslint-disable global-require */
+const { declare } = require('@babel/helper-plugin-utils');
+
 const browsers = require('@acolorbright/browserslist-config');
-
-const assign = require('object.assign');
-
-const modules = [require('@babel/plugin-transform-modules-commonjs'), {
-  strict: false,
-}];
 
 
 const defaultTargets = {
@@ -13,41 +8,40 @@ const defaultTargets = {
   browsers,
 };
 
-function buildTargets(options) {
-  return assign({}, defaultTargets, options.additionalTargets);
+function buildTargets({ additionalTargets }) {
+  return { ...defaultTargets, ...additionalTargets };
 }
 
-module.exports = function buildACBPreset(context, options) {
-  const transpileTargets = (options && options.targets)
-    || buildTargets(options || {});
+module.exports = declare((api, options) => {
+  api.assertVersion('^7.8');
 
-  const debug = (options && typeof options.debug === 'boolean') ? !!options.debug : false;
+  const {
+    modules = 'auto',
+    targets = buildTargets(options),
+  } = options;
 
-  const presetEnvExtraOptions = options.presetEnvExtraOptions || {};
-  const presetEnvOptions = { debug,
-    useBuiltIns: 'entry',
-    modules: false,
-    targets: transpileTargets,
-    ...presetEnvExtraOptions };
+  const debug = typeof options.debug === 'boolean' ? options.debug : false;
+  const development = typeof options.development === 'boolean'
+    ? options.development
+    : api.cache.using(() => process.env.NODE_ENV === 'development');
 
-  return {
+  const config = {
     presets: [
-      require('@babel/preset-env').default(context, presetEnvOptions),
-      require('@babel/preset-react'),
+      [require('@babel/preset-env'), {
+        debug,
+        modules: modules === false ? false : 'auto',
+        targets,
+      }],
+      [require('@babel/preset-react'), { development }],
     ],
     plugins: [
-      options && options.modules === false ? null : modules,
-      require('@babel/plugin-proposal-object-rest-spread'),
-      require('@babel/plugin-proposal-optional-chaining'),
+      require('@babel/plugin-proposal-class-properties'),
       require('babel-plugin-jsx-control-statements'),
-      [require('babel-plugin-transform-builtin-extend').default, {
-        globals: ['Error'],
-      }],
-      require('@babel/plugin-proposal-export-namespace-from'),
-      require('@babel/plugin-proposal-throw-expressions'),
-      require('@babel/plugin-syntax-dynamic-import'),
-      debug ? null : require('@babel/plugin-transform-react-constant-elements'),
-      debug ? null : require('@babel/plugin-transform-react-inline-elements').default,
-    ].filter(Boolean),
+    ],
   };
-};
+
+  if (api.env('production')) {
+    config.plugins.push(require('babel-plugin-transform-react-remove-prop-types'));
+  }
+  return config;
+});
