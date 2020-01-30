@@ -1,3 +1,6 @@
 {
-  "extends": "acb-base"
+  "extends": "acb-base",
+  "rules": {
+    "global-require": 0
+  }
 }
