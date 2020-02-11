@@ -11,7 +11,8 @@ Currently uses the presets [@babel/preset-env](https://babeljs.io/docs/en/babel-
 ## Installation
 
 ```shell
-$ npm install --save-dev @babel/core@^7.8 acolorbright/babel-preset-acb#v3.0.0
+$ npm install @babel/core@^7.8
+$ npm install --save-dev acolorbright/babel-preset-acb#v3.0.0
 ```
 
 ## Usage
