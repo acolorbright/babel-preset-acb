@@ -16,7 +16,7 @@ module.exports = declare((api, options) => {
   api.assertVersion('^7.8');
 
   const {
-    modules = 'auto',
+    modules = api.env('test') ? 'commonjs' : 'auto',
     targets = buildTargets(options),
   } = options;
 
@@ -29,7 +29,7 @@ module.exports = declare((api, options) => {
     presets: [
       [require('@babel/preset-env'), {
         debug,
-        modules: modules === false ? false : 'auto',
+        modules,
         targets,
       }],
       [require('@babel/preset-react'), { development }],
@@ -40,7 +40,7 @@ module.exports = declare((api, options) => {
     ],
   };
 
-  if (api.env('production')) {
+  if (!development) {
     config.plugins.push(require('babel-plugin-transform-react-remove-prop-types'));
   }
   return config;
